@@ -17,3 +17,17 @@ Used plugins<br>
 1x gateliveData_log (#446)<br>
 2x Rob_arm_2_servos (#496)<br>
 1x Mouse_Rob_arm_visual_stoplimits (#493)
+
+Robot Arm description
+servo 1 - turning base
+servo 2 - first elbow
+servo 3 - middle elbow
+servo 4 - end elbow
+servo 5 - turning clamp
+servo 6 - clamp open/close
+
+The latency we have got during testing was around 35 milliseconds.
+The time between commands sent was tested started at 50 milliseconds. Speed where Arduino use his maximum CPU power limits. We recommend time between commands at 100 milliseconds as minimum.
+
+We estimate all the servo can move from 750 to 2250 microseconds respectively from 10 to 170 deg.
+We control servos by microseconds.
