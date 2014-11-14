@@ -23,10 +23,10 @@ Used plugins<br>
 2x Rob_arm_2_servos (#496)<br>
 1x Mouse_Rob_arm_visual_stoplimits (#493)
 
-Robot Arm description
-servo 1 - turning base
-servo 2 - first elbow
-servo 3 - middle elbow
-servo 4 - end elbow
-servo 5 - turning clamp
-servo 6 - clamp open/close
+Robot Arm description<br>
+servo 1 - turning base<br>
+servo 2 - first elbow<br>
+servo 3 - middle elbow<br>
+servo 4 - end elbow<br>
+servo 5 - turning clamp<br>
+servo 6 - clamp open/close<br>
