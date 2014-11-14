@@ -12,4 +12,6 @@ http://192.168.1.184:51840/s to turn the LED OFF<br>
 Use this URL from the internet outside home network:<br>
 http://yourWAN:51840/a to turn the LED ON<br>
 http://yourWAN:51840/s to turn the LED OFF<br>
-You MUST setup port forwarding for the prot 51840 to the IP 192.168.1.184. OR you change the Arduino's IP as you wish.<br>
+<br>
+You MUST setup routers' port forwarding for the prot 51840 to the IP 192.168.1.184.<br>
+OR you change the Arduino's IP as you wish.<br>
