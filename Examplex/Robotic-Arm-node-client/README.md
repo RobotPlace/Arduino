@@ -1,12 +1,12 @@
 Robotic-Arm-node-client
 =======================
 Code to control a Robotic Arm with robotmonitor<br>
-Example: http://www.robotmonitor.com/example/arduino-robotic-arm
+Example: http://www.robotmonitor.com/example/arduino-robotic-arm<br>
 <br>
-The latency we have got during testing was around 35 milliseconds. The time between commands sent was tested started at 50 milliseconds. Speed where Arduino use his maximum CPU power limits. We recommend time between commands at 100 milliseconds as minimum.
+The latency we have got during testing was around 35 milliseconds. The time between commands sent was tested started at 50 milliseconds. Speed where Arduino use his maximum CPU power limits. We recommend time between commands at 100 milliseconds as minimum.<br>
 <br>
 We estimate all the servo can move from 750 to 2250 microseconds respectively from 10 to 170 deg.
-We control servos by microseconds.
+We control servos by microseconds.<br>
 <br>
 Monitor to test<br>
 LiveData 6x Servo control (#181)<br>
