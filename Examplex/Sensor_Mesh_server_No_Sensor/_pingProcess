@@ -1,0 +1,83 @@
+void pingProcess()
+{
+  //waiting server answer
+  if(clientPINGConection){
+    // When HTTP request answer bytes available 
+    // from the server, read them and print them:
+    if (clientPING.available()) {
+      char c = clientPING.read();
+      bufferPING += c;
+      //Buffer can't contain the whole http content
+      if(bufferPING.length() > 80){
+        bufferPING = bufferPING.substring((bufferPING.length()-25),(bufferPING.length()));
+      }
+    }
+
+    // if the server's disconnected, stop the client:
+    if (!clientPING.connected() && clientPINGConection == true) {
+      clientPING.stop();
+      clientPINGConection = false;
+      parsePingAnswer();
+    }
+  }
+
+  if(millis() - lastping >= pingperiod){
+    Serial.print("sPG.");
+    ping();
+    lastping = millis();
+    //if ping fails in 60ms, repeat next ping in 3s
+    if(pingDone == false) lastping = millis() - pingperiod + 30000;
+  }
+}
+
+void ping()
+{
+  // if you get a connection, report back via serial:
+  if (clientPING.connect(server, 80)) {
+    pingVoidTimeLast = millis();
+    clientPINGConection = true;
+    pingDone = true;
+    clientPING.println("GET /device-acces/write/?hash=" + DeviceAuthKey + "&data=ping HTTP/1.0");
+    clientPING.println("Host: portal.robotmonitor.com");
+    clientPING.println("Connection: close");
+    clientPING.println();
+    Serial.print("ps!");
+  }
+  else {
+    // if you didn't get a connection to the server:
+    pingDone = false;
+    PGerrors++;
+    Serial.println("Pf");
+    Serial.print("Ping errors: ");
+    Serial.println(PGerrors);
+  }
+
+}
+
+void parsePingAnswer(){
+  //cut only the server name "xxx.robotmonitor.com"
+  String pingAnswer = bufferPING.substring((bufferPING.length()-25),(bufferPING.length()-5));
+  //Serial.print("PingAnswer: ");
+  //Serial.print(pingAnswer);
+  String temp = pingAnswer.substring(pingAnswer.length()-3,pingAnswer.length());
+  if(temp != "com") {
+    Serial.println(bufferPING); //dataTable writing failed
+    PGerrors++;
+    Serial.print("Ping errors: ");
+    Serial.println(PGerrors);
+  } 
+  else {
+    Serial.print("psOK");
+    pingVoidTime = millis() - pingVoidTimeLast;
+    Serial.println(pingVoidTime);
+  }
+  bufferPING = "";
+}
+
+
+
+
+
+
+
+
