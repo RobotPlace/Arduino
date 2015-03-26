@@ -1,4 +1,25 @@
+/*
+ Based on Arduino Web Server Exemple
+ created 20.Sept 2013
+ by Petr Hubacek
 
+ SKETCH PRINCIPLE:
+ A simple web server to turn a LED ON/OFF by HTTP requests from robotmonitor.com Monitors.
+ - HTTP string answer to string recieved by HTTP IP + Port
+ - LED ON/OFF according recieved values
+ - user activity check to avoid LED switched on for longer time than ie. 5 seconds
+
+ COMMANDS:
+  - LED ON command:  A or a
+  - LED OFF command: S or s
+
+ Circuit:
+  - Arduino
+  - Arduino Ethernet shield
+  - LED on pin 7
+
+ This sketch is released under MIT licence
+*/
 
 #include <SPI.h>
 #include <Ethernet.h>
