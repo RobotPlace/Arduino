@@ -3,7 +3,7 @@ void setup()
   Serial.begin(57600);
   mySerial.begin(38400);
   delay(1000);
-  Serial.print("Setup XBee ");
+  Serial.print("Setup XBee swSerial");
   xbeeSetup();
   Serial.println();
   Serial.print("XBeeID: ");
