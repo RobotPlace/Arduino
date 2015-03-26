@@ -1,6 +1,5 @@
 Aduino Codes_HTTP
 ================
-<br>
 An examle to communicate between RobotMonitor and a Device over HTTP<br>
 <br>
 This file is the simplest way to switch ON/OFF a LED on an Arduino.<br>
