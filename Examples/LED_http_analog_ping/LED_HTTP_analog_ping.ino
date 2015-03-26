@@ -4,19 +4,23 @@
  by Petr Hubacek
 
  SKETCH PRINCIPLE:
- A simple web server to turn a LED ON/OFF by HTTP requests from robotmonitor.com Monitors.
+ A simple web server to change the light strength of a LED by HTTP request commands.
  - HTTP string answer to string recieved by HTTP IP + Port
  - LED ON/OFF according recieved values
  - user activity check to avoid LED switched on for longer time than ie. 5 seconds
 
  COMMANDS:
-  - LED ON command:  A or a
-  - LED OFF command: S or s
+	This will change your LED light strength from 0% to 100% by commands:
+	q = 5%
+	w = 10%
+	e = 50%
+	a = 100%
+	s = 0% - OFF
 
  Circuit:
   - Arduino
   - Arduino Ethernet shield
-  - LED on pin 7
+  - LED on pin 9
 
  This sketch is released under MIT licence
 */
