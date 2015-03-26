@@ -1,6 +1,5 @@
 Aduino Codes_HTTP
 ================
-<br>
 An example to communicate between RobotMonitor and a Device over HTTP<br>
 <br>
 This will change your LED light strength from 0% to 100% by commands:<br>
