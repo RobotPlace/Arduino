@@ -13,7 +13,7 @@
 	This will change your LED light strength from 0% to 100% by commands:
 	q = 5%
 	w = 10%
-	e = 50%
+	e = 60%
 	a = 100%
 	s = 0% - OFF
 
