@@ -1,6 +1,7 @@
 Aduino Codes_HTTP
 ================
 An example to communicate between RobotMonitor and a Device over HTTP<br>
+This example is identic to LED_http_simplest example except digitalWrite() is replaced by analogWrite() function, so LED can receive commands to get PWM value between 0 and 255.<br>
 <br>
 This will change your LED light strength from 0% to 100% by commands:<br>
 q = 5%<br>
