@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            WebSocket Test
+        </title>
+
+		<script language = "javascript" type = "text/javascript">
+			var cmd_1 = "a";
+			var cmd_2 = "s";
+			var cmd_3 = "r";
+			var k = 0;
+			//var wsUri = "ws://" + params.iptcp + ":" + params.porttcp + "/";
+			var wsUri = "ws://192.168.1.184:51840";
+			//var output;
+			
+			function init() {
+				testWebSocket();
+			}
+			
+			function testWebSocket() {
+				wsUri = "ws://" + document.getElementsByName("myurl")[0].value;
+				websocket = new WebSocket(wsUri);
+			    websocket.onopen = function(evt) {
+			        console.log("CONNECTED");
+			    };
+			    websocket.onclose = function(evt) {
+			        console.log("DISCONNECTED");
+			    };
+			    websocket.onmessage = function(evt) {
+			    	var pin = evt.data;
+			    	var element;
+					k++;
+					document.getElementById("log").value = pin + " " + k + " messages in";
+
+			    };
+			    websocket.onerror = function(evt) {
+			        console.log("ERROR: " + evt.data);
+			    };
+			}
+
+			function closeWS() {
+				websocket.close();
+			}
+			
+			function sendWS(_message) {		
+			    console.log("SENT: " + _message);
+			    websocket.send(_message);
+			}
+			
+			// ------------------- Send Data to WebSocket Stream
+			function receiveData(_handler, _message) {
+				websocket.send(_message);
+			}
+			
+        </script>
+    </head>
+	
+    <body>
+        <h2>
+            WebSocket
+        </h2>
+		
+		<script>		
+			
+		</script>
+		<div>
+			WebSocket IP:Port<br />
+
+			<button type="button" id="bconnect" onclick="init();">Connect</button>
+			<button type="button" id="bdisconnect" onclick="closeWS();">Close</button><br />
+			<input type="text" name="myurl" value="192.168.1.184:51840"><br />
+			<button name="UP" onclick="sendWS(cmd_1);">UP</button>
+			<button name="DOWN" onclick="sendWS(cmd_2);">DOWN</button>
+			<button name="RESET" onclick="sendWS(cmd_3)">RESET</button><br />
+			<output id="log"></output>
+		</div>
+    </body>
+</html>
