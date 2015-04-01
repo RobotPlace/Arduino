@@ -180,7 +180,6 @@ void clientHTTP(){
 }
 
 void ledBlink(int _switch) {
-  
   analogWrite(ledPin, _switch);
   lastLED = millis();
   
