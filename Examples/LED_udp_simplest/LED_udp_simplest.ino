@@ -112,7 +112,7 @@ void processUDP() {
           break;
         case 1:
           Serial.println("=>A"); // LED OFF
-          ledState = 1;
+          ledState = 250;
           ledBlink(ledState);
           sendUDP_echo(packetBuffer);
           break;
@@ -170,14 +170,12 @@ void sendUDP_cmd(char* _msg) {
 }
 
 void ledBlink(int _switch) {
-  if (_switch == 1) analogWrite(ledPin, 255); //PWM transforms 5V (255) to 3V (153)
-  if (_switch == 0) analogWrite(ledPin, 0);
+  analogWrite(ledPin, _switch); //PWM transforms 5V (255) to 3V (153)
   lastLED = millis();
 }
 
 void led_reset() {
   if ( (millis() - lastLED > resetLED) && ledState != 0 ) {
-    ledState = 0;
     ledState = 0;
     ledBlink(ledState);
   }
