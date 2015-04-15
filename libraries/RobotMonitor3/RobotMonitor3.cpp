@@ -1,7 +1,23 @@
 #include "RobotMonitor3.h"
 
-RobotMonitor::RobotMonitor(const String& authHash, const String& tableinLink, const String& tableoutLink)
-  : devicemac(devicemac), deviceIP(deviceIP), server(46, 28, 111, 207), clientData(), clientPing(), clientgetData(), authHash(authHash), tableinLink(tableinLink), tableoutLink(tableoutLink), pingperiod(5000), lastping(0), dataperiod(5000), lastdata(0), getdataperiod(5000), getDataBuffer(getDataBuffer), lastgetdata(0) {
+RobotMonitor::RobotMonitor(const String& authHash, const String& tableinLink, const String& tableoutLink, byte *devicemac, const IPAddress& deviceIp, const String& getDataBuffer)
+  : server(46, 28, 111, 207), 
+    authHash(authHash), 
+    tableinLink(tableinLink), 
+    tableoutLink(tableoutLink), 
+    deviceIP(deviceIP), 
+    clientPing(), 
+    clientData(),
+    clientgetData(),
+    pingperiod(5000), 
+    dataperiod(5000), 
+    getdataperiod(5000), 
+    lastping(0), 
+    lastdata(0), 
+    lastgetdata(0),
+    getDataBuffer(getDataBuffer) 
+{
+  memcpy(&this->devicemac, devicemac, 6);
 }
 
 RobotMonitor::~RobotMonitor() {
