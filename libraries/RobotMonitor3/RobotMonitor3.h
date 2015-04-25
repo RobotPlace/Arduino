@@ -8,9 +8,6 @@
 class RobotMonitor {
 private:
   IPAddress server;
-  String authHash;
-  String tableinLink;
-  String tableoutLink;
   byte devicemac[6];
   IPAddress deviceIP;
   EthernetClient clientPing;
@@ -22,16 +19,15 @@ private:
   unsigned long lastping;
   unsigned long lastdata;
   unsigned long lastgetdata;
-  String getDataBuffer;
 
 public:
-  void ping();
-  void setData(const String& data);
-  void getData();
-  void setIP();
-  void setMAC();
+  int ping(const String& authHash);
+  int setData(const String& tableinLink, const String& data);
+  int getData(const String& tableoutLink, String& data);
+  void setIP(IPAddress& deviceIp);
+  void setMAC(uint8_t *devicemac);
 
-  RobotMonitor(const String& authHash, const String& tableinLink, const String& tableoutLink, uint8_t *devicemac, const IPAddress& deviceIp, const String& getDataBuffer);
+  RobotMonitor(uint8_t *devicemac, const IPAddress& deviceIp);
   ~RobotMonitor();
 };
 
