@@ -11,19 +11,21 @@ private:
   byte devicemac[6];
   IPAddress deviceIP;
   EthernetClient clientPing;
-  EthernetClient clientData;
+  EthernetClient clientsetData;
   EthernetClient clientgetData;
   unsigned long pingperiod;
-  unsigned long dataperiod;
+  unsigned long setdataperiod;
   unsigned long getdataperiod;
   unsigned long lastping;
   unsigned long lastdata;
   unsigned long lastgetdata;
+  boolean clientConection;
+  boolean clientAnswered;
 
 public:
-  int ping(const String& authHash);
-  int setData(const String& tableinLink, const String& data);
-  int getData(const String& tableoutLink, String& data);
+  void ping(const String& authHash, int& answer);
+  void setData(const String& tableinLink, String& data);
+  void getData(const String& tableoutLink, String& data);
   void setIP(IPAddress& deviceIp);
   void setMAC(uint8_t *devicemac);
 
