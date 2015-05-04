@@ -54,7 +54,7 @@ RobotMonitor::RobotMonitor(byte *devicemac, const IPAddress& deviceIP)
 RobotMonitor::~RobotMonitor() {
 }
 
-void RobotMonitor::setData(const String& tableinLink, String& data) {
+void RobotMonitor::DataTable_write(const String& tableinLink, String& data) {
   if (millis() - lastdata > setdataperiod) {
     if (clientsetData.connect(server, 80)) {
       setdataperiod = 25000;
@@ -122,7 +122,7 @@ void RobotMonitor::setData(const String& tableinLink, String& data) {
   //return 0;
 }
 
-void RobotMonitor::getData(const String& tableoutLink, String& data) {
+void RobotMonitor::DataTable_read(const String& tableoutLink, String& data) {
   if (millis() - lastgetdata > getdataperiod) {
     if (clientgetData.connect(server, 80)) {
     	data = "";
