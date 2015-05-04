@@ -54,6 +54,48 @@ RobotMonitor::RobotMonitor(byte *devicemac, const IPAddress& deviceIP)
 RobotMonitor::~RobotMonitor() {
 }
 
+void RobotMonitor::DeviceProfile_write( const String& authHash, String& data ){
+	
+}
+void RobotMonitor::DeviceProfile_read( const String& authHash, String& data ){
+	
+}
+void RobotMonitor::DeviceFile_read( const String& authHash, String& FileName ){
+	
+}
+void RobotMonitor::HTTPCloud_read( const String& tableoutLink, String& data ){
+	
+}
+void RobotMonitor::HTTPCloud_write( const String& tableinLink, String& data ){
+	
+}
+
+// connect TCP and keep logged
+// status 0=notconnected, 1=login, 2=disconected by server
+// 10=0 listeners, 11=1 listener, 12=2 listeners,..., 22=12 listeners...
+void LiveTCP_on( const String& loginLink, int status ){
+	
+}
+void LiveTCP_read( const String& data, int status ){
+	
+}
+void LiveTCP_write( const String& data, int status ){
+	
+}
+	
+// connect UDP and keep logged
+// status 0=notconnected, 1=login, 2=disconected by server
+// 10=0 listeners, 11=1 listener, 12=2 listeners,..., 22=12 listeners...
+void LiveUDP_on( const String& loginLink, int status ){
+	
+}
+void LiveUDP_write( const String& data, int status ){
+	
+}
+void LiveUDP_read( const String& data, int status ){
+	
+}
+
 void RobotMonitor::DataTable_write(const String& tableinLink, String& data) {
   if (millis() - lastdata > setdataperiod) {
     if (clientsetData.connect(server, 80)) {
