@@ -20,7 +20,7 @@
 	void HTTPCloud_read( String tableoutLink, String data );
 	void HTTPCloud_write( String tableinLink, String data );
 
-	void LiveDataServer_read( String data );
+	void LiveDataServer_url( String authHash, String data );
 	
 	// connect TCP and keep logged - status 0=notconnected, 1=login, 2=disconected by server, 10=0 listeners, 11=1 listener, 12=2 listeners,..., 22=12 listeners...
 	void LiveTCP_on( String loginLink, int status );
@@ -70,9 +70,12 @@ void RobotMonitor::HTTPCloud_write( const String& tableinLink, String& data ){
 	
 }
 
-// connect TCP and keep logged
+// connect TCP, UDP and keep logged
 // status 0=notconnected, 1=login, 2=disconected by server
 // 10=0 listeners, 11=1 listener, 12=2 listeners,..., 22=12 listeners...
+void LiveDataServer_url( const String& authHash, String& data ){
+	
+}
 void LiveTCP_on( const String& loginLink, int status ){
 	
 }
@@ -82,10 +85,6 @@ void LiveTCP_read( const String& data, int status ){
 void LiveTCP_write( const String& data, int status ){
 	
 }
-	
-// connect UDP and keep logged
-// status 0=notconnected, 1=login, 2=disconected by server
-// 10=0 listeners, 11=1 listener, 12=2 listeners,..., 22=12 listeners...
 void LiveUDP_on( const String& loginLink, int status ){
 	
 }
