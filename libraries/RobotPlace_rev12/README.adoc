@@ -1,0 +1,22 @@
+ Web client robotplace:
+ 1) ping online status
+ 2) get table readkey and writekey
+ 3) read a table
+ 4) write to a table
+ 5) read/write device profile info incl. messages
+ 6) TCP liveData connect, login, read, write
+ 7) TCP liveData read, write data
+ 8) UDP liveData connect, login, read, write
+ 9) added Progmem to store strings (first step to reduce code size)
+ 
+ ISSUES
+ 1) working, stability to verify
+ 2) working, stability testing --- working for 12h without an interruption
+ 3) working, stable, working for 27 hours - ok (strange one case of non detection on LAN disconnection)
+ 4) better TCP disconnection and UDP logout detection
+
+ // function rmdevice.info( infoType, data ) is not returning a value until request finished or timeout
+ // example on the new library use
+
+ created 18 March 2015
+ by Petr Hubacek
