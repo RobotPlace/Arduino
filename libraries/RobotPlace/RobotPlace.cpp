@@ -60,7 +60,7 @@
 */
 
 RobotPlace::RobotPlace( const String& _authHash, byte *devicemac, const IPAddress& deviceIP)
-	: server(46, 28, 111, 207),
+	: server(89, 221, 208, 211),
 	  //infoType(),
 	  authHash(_authHash),
 	  //http
