@@ -31,13 +31,13 @@
 // comment setIP(IPAddress& deviceIP)
 // use progmem to store strings
 
-#include "RobotPlace5.h"
+#include "RobotPlace.h"
 
 // v3 added HTTP requests for dataTables
 // WebSocket communication works independently on robotplace sollution
 // v4 added TCP LiveDate
 
-/* robotplace5 lib functions
+/* robotplace lib functions
 
 	robotplace(int devicemac, IPAddress deviceIp );
 	void setIP( IPAddress deviceIp );
