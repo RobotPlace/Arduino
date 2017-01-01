@@ -184,6 +184,9 @@ void RobotPlace::info( const String& _infoType, String& _data, String& _answer)
 				else if ( _infoType.equals("message") ) 		getLink = getLink + getdevice_acces + getLinkWrite + _data + rightHTTP;
 				else if ( _infoType.equals("tablewrite") ) 		getLink = getLink + _data + rightHTTP;
 
+				Serial.println();
+				Serial.println(getLink);
+				Serial.println();
 				clientInfo.println(getLink);
 				clientInfo.println("Host: portal.robotplace.com");
 				clientInfo.println("Connection: close");
