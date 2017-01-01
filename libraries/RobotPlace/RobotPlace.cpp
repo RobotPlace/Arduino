@@ -150,7 +150,7 @@ void RobotPlace::info( const String& _infoType, String& _data, String& _answer)
 	String msg = "";
 	if ( clientConection == false )
 	{
-		if ( ( _infoType == "online" && millis() - lastInfoOnline >= 600000 )  ||  ( _infoType != "online" && millis() - lastInfo >= 1000 ) )
+		if ( ( _infoType == "online" && millis() - lastInfoOnline >= 90000 )  ||  ( _infoType != "online" && millis() - lastInfo >= 1000 ) )
 		{
 			// ONLINE || SERVER
 			if (clientInfo.connect(server, 80))
